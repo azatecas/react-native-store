@@ -1,5 +1,6 @@
 import React from "react";
 import { FlatList, StyleSheet, View } from "react-native";
+import Constants from "expo-constants";
 
 import Screen from "../components/Screen";
 import ListItem from "../components/ListItem/ListItem";
