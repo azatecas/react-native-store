@@ -1,10 +1,10 @@
 import React from "react";
 import { FlatList, StyleSheet, View } from "react-native";
-import Constants from "expo-constants";
 
 import Screen from "../components/Screen";
 import ListItem from "../components/ListItem/ListItem";
 import ListItemSeparator from "../components/ListItemSeparator";
+import ListItemDeleteAction from "../components/ListItemDeleteAction";
 
 const messages = [
   {
@@ -39,6 +39,7 @@ const MessagesScreen = (props) => {
             subTitle={item.description}
             image={item.image}
             onPress={() => console.log("Message Pressed: ", item.title)}
+            renderRightActions={ListItemDeleteAction}
           />
         )}
         ItemSeparatorComponent={ListItemSeparator}
@@ -46,7 +47,5 @@ const MessagesScreen = (props) => {
     </Screen>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default MessagesScreen;

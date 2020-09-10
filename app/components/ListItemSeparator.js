@@ -9,4 +9,5 @@ const ListItemSeparator = () => {
 const styles = StyleSheet.create({
   separator: { backgroundColor: colors.light, width: "100%", height: 1 },
 });
+
 export default ListItemSeparator;
