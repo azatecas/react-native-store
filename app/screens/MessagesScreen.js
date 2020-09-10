@@ -29,6 +29,7 @@ const initialMessages = [
 
 const MessagesScreen = (props) => {
   const [messages, setMessages] = useState(initialMessages);
+  const [refreshing, setRefeshing] = useState(false);
 
   const handleDelete = (message) => {
     //delete message from messages
@@ -52,6 +53,17 @@ const MessagesScreen = (props) => {
           />
         )}
         ItemSeparatorComponent={ListItemSeparator}
+        refreshing={refreshing}
+        onRefresh={() => {
+          setMessages([
+            {
+              id: 3,
+              title: "Mosh Hamadi",
+              description: "hey is this item still available?",
+              image: require("../assets/mosh.jpg"),
+            },
+          ]);
+        }}
       />
     </Screen>
   );
