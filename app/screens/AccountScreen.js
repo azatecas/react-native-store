@@ -1,10 +1,15 @@
 import React from "react";
-import { StyleSheet, View, FlatList } from "react-native";
+import { StyleSheet, View,Text, Image, FlatList } from "react-native";
 import Screen from "../components/Screen";
 import ListItem from "../components/ListItem/ListItem";
 import colors from "../config/colors";
+import Icon from "../components/Icon";
 
-const manuItems = [
+
+const image = require('../assets/mosh.jpg');
+
+// we dont want to recreate this array every render so set it outside of component
+const menuItems = [
   {
     title: "My Listings",
     icon: {
@@ -21,24 +26,42 @@ const manuItems = [
   },
 ];
 
-function AccountScreen(props) {
+const hey = "hello world"
+const AccountScreen = () => {
   return (
     <Screen>
-      <View style={styles.container}>
+      <View>
         <ListItem
           title="John Smith"
           subTitle="joshsmith@gmail.com"
-          image={require("../assets/mosh.jpg")}
+          image={image}
+        />
+      </View>
+      <View>
+      <FlatList
+        data={menuItems}
+        keyExtractor={(menuItem) => menuItem.title}
+        renderItem={({ item }) => (
+          <ListItem
+            title={item.title}
+            ImageComponent={
+              <Icon
+                name={item.icon.name}
+                backgroundColor={item.icon.backgroundColor}
+              />
+            }
+          />
+        )}
         />
       </View>
     </Screen>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     marginVertical: "20px",
-  },
+  }
 });
 
 export default AccountScreen;

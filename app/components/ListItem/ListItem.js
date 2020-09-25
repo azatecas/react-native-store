@@ -17,7 +17,7 @@ const ListItem = ({
   image,
   ImageComponent,
   onPress,
-  renderRightActions,
+  renderRightActions
 }) => {
   return (
     <Swipeable renderRightActions={renderRightActions}>
