@@ -4,6 +4,7 @@ import Screen from "../components/Screen";
 import ListItem from "../components/ListItem/ListItem";
 import colors from "../config/colors";
 import Icon from "../components/Icon";
+import ListItemSeparator from '../components/ListItemSeparator'
 
 
 const image = require('../assets/mosh.jpg');
@@ -26,10 +27,9 @@ const menuItems = [
   },
 ];
 
-const hey = "hello world"
 const AccountScreen = () => {
   return (
-    <Screen>
+    <Screen style={styles.screen}>
       <View>
         <ListItem
           title="John Smith"
@@ -37,21 +37,32 @@ const AccountScreen = () => {
           image={image}
         />
       </View>
-      <View>
-      <FlatList
-        data={menuItems}
-        keyExtractor={(menuItem) => menuItem.title}
-        renderItem={({ item }) => (
-          <ListItem
-            title={item.title}
-            ImageComponent={
-              <Icon
-                name={item.icon.name}
-                backgroundColor={item.icon.backgroundColor}
-              />
-            }
+
+      <View style={styles.container}>
+        <FlatList
+          data={menuItems}
+          keyExtractor={(menuItem) => menuItem.title}
+          ItemSeparatorComponent={ListItemSeparator}
+          renderItem={({ item }) => (
+            <ListItem
+              title={item.title}
+              IconComponent={
+                <Icon
+                  name={item.icon.name}
+                  backgroundColor={item.icon.backgroundColor}
+                />
+              }
+            />
+          )}
           />
-        )}
+      </View>
+
+      <View>
+        <ListItem
+          title={"Logout"}
+          IconComponent={
+            <Icon name="logout" backgroundColor="#ffe66d"/>
+          }
         />
       </View>
     </Screen>
@@ -59,8 +70,11 @@ const AccountScreen = () => {
 }
 
 const styles = StyleSheet.create({
+  screen: {
+    backgroundColor: colors.light,
+  },
   container: {
-    marginVertical: "20px",
+    marginVertical: 20,
   }
 });
 
