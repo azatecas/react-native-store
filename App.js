@@ -1,5 +1,5 @@
-import React from "react";
-import { View, Text } from "react-native";
+import React, {useState} from "react";
+import { View, Text, Switch } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Screen from "./app/components/Screen";
 import Icon from "./app/components/Icon";
@@ -14,7 +14,17 @@ import MessagesScreen from "./app/screens/MessagesScreen";
 import ListItem from "./app/components/ListItem/ListItem";
 import AccountScreen from "./app/screens/AccountScreen";
 import ListingScreen from "./app/screens/ListingScreen"
+import AppTextInput from "./app/components/AppTextInput";
+import AppPicker from "./app/components/AppPicker";
+
 
 export default function App() {
-  return <ListingScreen />;
+
+  const [isNew, setIsNew] = useState(false);
+  return (
+    <Screen>
+      <AppPicker placeholder="Catergory" />
+      <AppTextInput placeholder="Email"/>
+    </Screen> 
+    )
 }

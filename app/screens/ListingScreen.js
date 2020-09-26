@@ -8,14 +8,26 @@ import colors from '../config/colors';
 const listings = [
     {
         id: 1,
-        title: 'Red jacket for sale',
+        title: 'Red jacket',
         price: 100,
         image: require('../assets/jacket.jpg')
     },
     {
         id: 2,
-        title: 'Couch in great condition',
+        title: 'Couch Like New',
         price: 1000,
+        image: require('../assets/couch.jpg')
+    },
+    {
+        id: 3,
+        title: 'Jake Long Jacket',
+        price: 100,
+        image: require('../assets/jacket.jpg')
+    },
+    {
+        id: 4,
+        title: 'Couch ASIS',
+        price: 500,
         image: require('../assets/couch.jpg')
     },
 ]
