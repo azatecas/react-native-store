@@ -16,15 +16,12 @@ import AccountScreen from "./app/screens/AccountScreen";
 import ListingScreen from "./app/screens/ListingScreen"
 import AppTextInput from "./app/components/AppTextInput";
 import AppPicker from "./app/components/AppPicker";
-
+import LoginScreen from "./app/screens/LoginScreen";
 
 export default function App() {
 
-  const [isNew, setIsNew] = useState(false);
+
   return (
-    <Screen>
-      <AppPicker placeholder="Catergory" />
-      <AppTextInput placeholder="Email"/>
-    </Screen> 
-    )
+    <LoginScreen />
+    );
 }

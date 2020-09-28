@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   signIn: {
     backgroundColor: colors.primary,
     height: 50,
-    width: "95%",
+    width: "100%",
     borderRadius: 30,
     alignItems: "center",
     justifyContent: "center",
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   signUp: {
     backgroundColor: colors.secondary,
     height: 50,
-    width: "95%",
+    width: "100%",
     borderRadius: 30,
     alignItems: "center",
     justifyContent: "center",
