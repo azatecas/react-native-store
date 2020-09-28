@@ -3,7 +3,9 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 import Screen from '../components/Screen';
 import AppText from '../components/AppText';
 import AppTextInput from '../components/AppTextInput';
+import AppFormField from '../components/AppFormField';
 import SignIn from '../components/Buttons/SignIn';
+import ErrorMessage from '../components/ErrorMessage';
 
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -15,7 +17,6 @@ const validationSchema = Yup.object().shape({
 })
 
 const LoginScreen = (props) => {
-
     return (
         <Screen style={styles.container}>
             <Image 
@@ -28,28 +29,26 @@ const LoginScreen = (props) => {
                 onSubmit={values => console.log(values)}
                 validationSchema={validationSchema}
             >
-                { ({ handleChange, handleSubmit, errors }) => (
+                { ({ handleChange, handleSubmit, errors, setFieldTouched, touched }) => (
                     <>
-                        <AppTextInput 
+                        <AppFormField
+                            name="email" 
                             autoCapitalize="none"
                             autoCorrect={false}
                             icon="email"
                             keyboardType="email-address"
                             placeholder="Email"
                             textContentType="emailAddress"
-                            onChangeText={handleChange("email")}
                         />
-                        {errors && <AppText style={{color: 'red', padding: 0, margin: 0}}>{errors.email}</AppText>}
-                        <AppTextInput
+                        <AppFormField
+                            name="password"
                             autoCapitalize="none"
                             autoCorrect={false}
                             icon="lock"
                             placeholder="Password"
                             secureTextEntry
                             textContentType="password"
-                            onChangeText={handleChange("password")}
                         />
-                        {errors && <AppText style={{color: 'red', padding: 0, margin: 0}}>{errors.password}</AppText>}
                         <SignIn 
                             title="Login" 
                             onPress={handleSubmit} 
