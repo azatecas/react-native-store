@@ -3,7 +3,7 @@ import { ImageBackground, StyleSheet, View, Image, Text } from "react-native";
 import bgimage from "../assets/background.jpg";
 import logoImg from "../assets/logo-red.png";
 import SignUp from "../components/Buttons/SignUp";
-import SignIn from "../components/Buttons/SignIn";
+import AppButton from "../components/Buttons/AppButton";
 
 const WelcomeScreen = (props) => {
   return (
@@ -12,7 +12,7 @@ const WelcomeScreen = (props) => {
         <Image source={logoImg} style={styles.logo} />
         <Text style={styles.tagline}>Sell What You Don't Need</Text>
       </View>
-      <SignIn onPress={() => console.log("Signed In!")} />
+      <AppButton onPress={() => console.log("Signed In!")} />
       <SignUp onPress={() => console.log("registered!")} />
     </ImageBackground>
   );
