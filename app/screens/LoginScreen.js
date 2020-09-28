@@ -1,10 +1,18 @@
-import React from 'react'
-import { View, Text, StyleSheet, Image } from 'react-native'
-import Screen from '../components/Screen'
-import AppTextInput from '../components/AppTextInput'
-import SignIn from '../components/Buttons/SignIn'
+import React from 'react';
+import { View, Text, StyleSheet, Image } from 'react-native';
+import Screen from '../components/Screen';
+import AppText from '../components/AppText';
+import AppTextInput from '../components/AppTextInput';
+import SignIn from '../components/Buttons/SignIn';
 
 import { Formik } from 'formik';
+import * as Yup from 'yup';
+
+//validation schema
+const validationSchema = Yup.object().shape({
+    email: Yup.string().required().email().label("Email"),
+    password: Yup.string().required().min(4).label("Password")
+})
 
 const LoginScreen = (props) => {
 
@@ -18,8 +26,9 @@ const LoginScreen = (props) => {
             <Formik 
                 initialValues={{email: '', password: ''}}
                 onSubmit={values => console.log(values)}
+                validationSchema={validationSchema}
             >
-                { ({ handleChange, handleSubmit }) => (
+                { ({ handleChange, handleSubmit, errors }) => (
                     <>
                         <AppTextInput 
                             autoCapitalize="none"
@@ -30,6 +39,7 @@ const LoginScreen = (props) => {
                             textContentType="emailAddress"
                             onChangeText={handleChange("email")}
                         />
+                        {errors && <AppText style={{color: 'red', padding: 0, margin: 0}}>{errors.email}</AppText>}
                         <AppTextInput
                             autoCapitalize="none"
                             autoCorrect={false}
@@ -39,6 +49,7 @@ const LoginScreen = (props) => {
                             textContentType="password"
                             onChangeText={handleChange("password")}
                         />
+                        {errors && <AppText style={{color: 'red', padding: 0, margin: 0}}>{errors.password}</AppText>}
                         <SignIn 
                             title="Login" 
                             onPress={handleSubmit} 
