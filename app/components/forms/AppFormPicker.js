@@ -7,6 +7,7 @@ import ErrorMessage from "./ErrorMessage";
 const AppFormPicker = ({
   items,
   name,
+  numberOfColumns,
   PickerItemComponent,
   placeholder,
   width,
@@ -22,6 +23,7 @@ const AppFormPicker = ({
         selectedItem={values[name]}
         width={width}
         PickerItemComponent={PickerItemComponent}
+        numberOfColumns={numberOfColumns}
       />
       <ErrorMessage error={errors[name]} visible={touched[name]} />
     </>
